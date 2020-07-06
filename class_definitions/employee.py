@@ -21,16 +21,18 @@ class Employee:
 
     def set_salaried(self, salaried, salary):
         if salaried == "Salaried Employee":
-            return('Salaried Employee:', salary, 'per year')
+            return 'Salaried Employee: ' +  str(salary) +" "+ 'per year'
         else:
-            print('Hourly Employee:', salary, 'per hour')
+            return 'Hourly Employee: ' + str(salary) + 'per hour'
 
+    def set_starting_date(self, start_date):
+        dt = start_date
+        return dt.strftime("%m-%d-%y")
 
     def display(self):
-         return str(self.last_name) + ", " + str(self.first_name) + str(self.address_1) + str(self.address_2) + (self.salaried())
-         # str(self.salary works fine though)
+        return str(self.last_name) + ", " + str(self.first_name) + "\n" + str(self.address_1) + "\n" + str(self.address_2) + "\n" + (self.set_salaried(self.salaried, self.salary)) + "\n" +"Start Date:" +" "+ (self.set_starting_date(self.start_date))
          # spacing has not been implemented yet for purposes of simplicity - I do know how to do that.
 
 # Driver
-emp = Employee('Patel', 'Sasha', '123 Main St', 'Urban, Iowa', '515-867-5309', 'Salaried Employee', datetime.now(), '$40,000')   # call the construtor, needs to have a first and last name in parameter
-print(emp.display())                # display returns a str, so print the information
+emp = Employee('Patel', 'Sasha', '123 Main St', 'Urban, Iowa', '515-867-5309', 'Salaried Employee', datetime(2020, 4, 27), '$40,000')   # call the construtor, needs to have a first and last name in parameter
+print(emp.display())             # display returns a str, so print the information
