@@ -45,6 +45,7 @@ if __name__ == '__main__':
     except AttributeError as error:
         #attribute error was raised for non-numeric input for the CID
         print("Please enter numeric input for the CID", error)
+        #driver raises the error
 
 
 
